@@ -1,4 +1,4 @@
-print("working on hw 3")
+print("working on hw 3") ##
 
 #lists
 pages = [
@@ -28,9 +28,9 @@ pages = [
 
 #functions
 def main():
-    print("maine xecuted")
+    print("maine xecuted") ##
     
-    # Create full base with header and footer
+    # Create full base with header and footer 1
     #open basic base
     base_template = open("templates/base.html").read()
     # Read in the header and footer
@@ -40,54 +40,28 @@ def main():
     open("templates/fullbase.html", "w+").write(full_base)
     
     
-    #concatenate each page
+    #concatenate each page 2
     for page in pages:
         title= page["title"]
         base = None
         #index gets basic base, others get full base    
         if title == "index":
             base = open("templates/base.html").read()
-            print("base is open")
+            print("base is open") ##
         else:
             base = open("templates/fullbase.html").read()
-            print("full base is open")
-        #then
+            print("full base is open") ##
+            
+            
+        #then 3
         # Read in the content of each HTML page
         content = open("content/" + title + ".html").read()
         # Use the string replace
         finished_page = base.replace("{{content}}", content)
         open("docs/" +title+ ".html", "w+").write(finished_page)
-        print("finished")
+        print("finished")##
         
        
-
-def old():
-    
-    # adding header and footer to every page but index
-    for page in pages:
-        
-        if page["title"] != "index":
-            title= page["title"]
-            top_header = open ('templates/topheader.html').read()
-            bottom_footer = open('templates/bottomfooter.html').read()
-            content = open('content/'+ title + '.html').read()
-            
-            page_w_header_footer = top_header + content + bottom_footer
-            open('content/incl_header_footer/' + title + '.html', 'w+').write(page_w_header_footer)
-            
-
-    #adding top and bottom to each page
-    for page in pages:
-        
-        title= page["title"]
-        top_template = open('templates/top.html').read()
-        bottom_template = open('templates/bottom.html').read()
-        content = open('content/incl_header_footer/'+ title + '.html').read()
-        
-        complete_page = top_template + content + bottom_template
-        open('docs/' + title + '.html', 'w+').write(complete_page)
-        
-        
 
 
 #run    
