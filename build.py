@@ -1,24 +1,26 @@
+print("working on hw 3")
+
 #lists
 pages = [
     {
     "filename": "content/index.html",
     "output": "docs/index.html",
-    "title": "Home",
+    "title": "index",
     },
     {
     "filename": "content/about.html",
     "output": "docs/about.html",
-    "title": "About",
+    "title": "about",
     },
     {
     "filename": "content/gallery.html",
     "output": "docs/gallery.html",
-    "title": "Gallery",
+    "title": "gallery",
     },
     {
     "filename": "content/contribute.html",
     "output": "docs/contribute.html",
-    "title": "Contribute",
+    "title": "contribute",
     },
 ]
 
@@ -29,8 +31,15 @@ def main():
     
     for page in pages:
         
-        if page["title"] != "Home":
-            print(page["title"])
+        if page["title"] != "index":
+            title= page["title"]
+            top_header = open ('templates/topheader.html').read()
+            bottom_footer = open('templates/bottomfooter.html').read()
+            content = open('content/'+ title + '.html').read()
+            
+            page_w_header_footer = top_header + content + bottom_footer
+            open('docs/' + title + '.html', 'w+').write(page_w_header_footer)
+            print("success")
             #add header and footer
     for page in pages:
         print(page["title"])
