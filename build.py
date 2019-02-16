@@ -31,6 +31,7 @@ def main():
     print("maine xecuted") ##
     
     # Create full base with header and footer 1
+        #no return, no arguments
     #open basic base
     base_template = open("templates/base.html").read()
     # Read in the header and footer
@@ -40,9 +41,13 @@ def main():
     open("templates/fullbase.html", "w+").write(full_base)
     
     
-    #concatenate each page 2
+    #concatenate each page 
+    
     for page in pages:
         title= page["title"]
+        # assign base 2
+            #argument is title, return base
+        
         base = None
         #index gets basic base, others get full base    
         if title == "index":
@@ -53,7 +58,8 @@ def main():
             print("full base is open") ##
             
             
-        #then 3
+        #replace placeholder in each page with content 3
+            # argument is title, base. no return
         # Read in the content of each HTML page
         content = open("content/" + title + ".html").read()
         # Use the string replace
