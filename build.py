@@ -29,6 +29,7 @@ pages = [
 #functions
 def main():
     
+    # adding header and footer to every page but index
     for page in pages:
         
         if page["title"] != "index":
@@ -41,10 +42,20 @@ def main():
             open('docs/' + title + '.html', 'w+').write(page_w_header_footer)
             print("success")
             #add header and footer
+    #adding top and bottom to each page
     for page in pages:
         print(page["title"])
+        
+        top_template = open('templates/top.html').read()
+        bottom_template = open('templates/bottom.html').read()
+        content = open('docs/'+ title + '.html').read()
+        
+        complete_page = top_template + content + bottom_template
+        open('docs/' + title + '.html', 'w+').write(complete_page)
+        print("success step 2")
         #add top and bottom
-    
+
+def useless():    
     # First, get the template files
     top_template = open('templates/top.html').read()
     top_header = open ('templates/topheader.html').read()
